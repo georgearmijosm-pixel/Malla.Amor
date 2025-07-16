@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Malla de Ciara 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom, #ffe6f0, #fff0f5);
+      color: #333;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+    h1 {
+      text-align: center;
+      color: #d63384;
+      margin-bottom: 5px;
+    }
+    p.dedicatoria {
+      text-align: center;
+      font-style: italic;
+      color: #555;
+      margin-bottom: 30px;
+    }
+    .contenedor-ciclos {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 20px;
+      padding-bottom: 20px;
+    }
+    .ciclo {
+      flex: 0 0 auto;
+      background: #fff0f8;
+      border-radius: 16px;
+      padding: 16px;
+      min-width: 250px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .ciclo h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #c2185b;
+      font-size: 18px;
+    }
+    .materias {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+    .materia {
+      background: #ffffff;
+      padding: 8px 12px;
+      border-radius: 12px;
+      font-size: 14px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      width: 100%;
+      text-align: center;
+    }
+    .materia:hover {
+      transform: scale(1.05);
+    }
+    .materia.checked {
+      background: #d0f0c0;
+      color: #388e3c;
+      text-decoration: line-through;
+    }
+    .corazones {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+      z-index: 1000;
+    }
+    .corazon {
+      position: absolute;
+      bottom: 0;
+      font-size: 20px;
+      animation: flotar 2s ease-out forwards;
+    }
+    @keyframes flotar {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
+    }
+    .flores {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .flor {
+      position: absolute;
+      top: -50px;
+      width: 24px;
+      height: 24px;
+      background: url('https://cdn-icons-png.flaticon.com/512/616/616408.png') no-repeat center/cover;
+      animation: caer 10s linear infinite;
+    }
+    @keyframes caer {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="flores" id="flores"></div>
+  <h1>Malla Curricular de Medicina</h1>
+  <p class="dedicatoria">Para mi futura doctora. Te amo – George Armijos 💌</p>
+
+  <div class="contenedor-ciclos" id="contenedor-ciclos"></div>
+  <div class="corazones" id="corazones"></div>
+
+  <script>
+    const malla = {
+      "Ciclo I": [
+        "Fundamentos matemáticos", "Biología molecular", "Química", "Morfofuncional I", "Metodología de investigación y técnicas de estudio"
+      ],
+      "Ciclo II": [
+        "Física básica", "Bioquímica general", "Morfofuncional II", "Humanismo, universidad y cultura"
+      ],
+      "Ciclo III": [
+        "Fundamentos filosóficos de la medicina", "Biología molecular", "Morfofuncional III", "Búsqueda bibliográfica", "Antropología básica", "Redacción y comprensión lectora I"
+      ],
+      "Ciclo IV": [
+        "Parasitología", "Microbiología", "Morfofuncional IV", "Proyecto de vinculación I", "Bioestadística", "Realidad Nacional", "Redacción y comprensión lectora II"
+      ],
+      "Ciclo V": [
+        "Parasitología", "Farmacología general", "Patología General", "Semiología I", "Epistemología", "Ética y moral", "Psicología clínica", "Fisiopatología I"
+      ],
+      "Ciclo VI": [
+        "Farmacología aplicada", "Patología clínica", "Fisiopatología II", "Semiología II", "Proyecto de vinculación II", "Epidemiología", "Ética médica", "Administración en salud"
+      ],
+      "Ciclo VII": [
+        "Medicina interna I", "Integrado quirúrgico I", "Externado 1.1", "Historia de la medicina", "Composición de textos científicos"
+      ],
+      "Ciclo VIII": [
+        "Psiquiatría", "Infectología y medicina tropical", "Medicina interna II", "Integrado quirúrgico II", "Externado 1.2", "Trabajo de titulación I", "Emprendimiento"
+      ],
+      "Ciclo IX": [
+        "Imagenología", "Genética", "Integrado infantil", "Integrado materno", "Externado 2.1", "Trabajo de titulación II", "Deontología y medicina legal"
+      ],
+      "Ciclo X": [
+        "Medicina familiar", "Integrado de especialidades", "Medicina crítica, urgencias y toxicología", "Externado 2.2", "Salud pública", "Trabajo de titulación III"
+      ],
+      "Ciclo XI": [
+        "Internado de pediatría", "Internado de ginecología y obstetricia", "Internado de clínica", "Internado de cirugía", "Internado de medicina comunitaria"
+      ],
+      "Ciclo XII": [
+        "Internado de pediatría", "Internado de ginecología y obstetricia", "Internado de clínica", "Internado de cirugía", "Internado de medicina comunitaria"
+      ]
+    };
+
+    const contenedor = document.getElementById('contenedor-ciclos');
+
+    for (const [nombreCiclo, materias] of Object.entries(malla)) {
+      const divCiclo = document.createElement('div');
+      divCiclo.className = 'ciclo';
+
+      const titulo = document.createElement('h2');
+      titulo.textContent = nombreCiclo;
+      divCiclo.appendChild(titulo);
+
+      const divMaterias = document.createElement('div');
+      divMaterias.className = 'materias';
+
+      materias.forEach(materia => {
+        const divMateria = document.createElement('div');
+        divMateria.className = 'materia';
+        divMateria.textContent = materia;
+
+        if (localStorage.getItem(materia) === '1') divMateria.classList.add('checked');
+
+        divMateria.addEventListener('click', () => {
+          divMateria.classList.toggle('checked');
+          localStorage.setItem(materia, divMateria.classList.contains('checked') ? '1' : '0');
+
+          const corazones = document.getElementById('corazones');
+          for (let i = 0; i < 10; i++) {
+            const c = document.createElement('div');
+            c.className = 'corazon';
+            c.textContent = '💖';
+            c.style.left = Math.random() * 100 + '%';
+            corazones.appendChild(c);
+            setTimeout(() => c.remove(), 2000);
+          }
+        });
+
+        divMaterias.appendChild(divMateria);
+      });
+
+      divCiclo.appendChild(divMaterias);
+      contenedor.appendChild(divCiclo);
+    }
+
+    // Generar flores animadas
+    const floresContainer = document.getElementById('flores');
+    for (let i = 0; i < 30; i++) {
+      const flor = document.createElement('div');
+      flor.className = 'flor';
+      flor.style.left = Math.random() * 100 + '%';
+      flor.style.animationDelay = Math.random() * 10 + 's';
+      floresContainer.appendChild(flor);
+    }
+  </script>
+</body>
+</html>
