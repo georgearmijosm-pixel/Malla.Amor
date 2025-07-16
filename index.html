@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Para mi futura doctora</title>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Malla de Ciara 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -25,44 +24,57 @@
       color: #555;
       margin-bottom: 30px;
     }
+    .contenedor-ciclos {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 20px;
+      padding-bottom: 20px;
+    }
     .ciclo {
-      margin-bottom: 30px;
+      flex: 0 0 auto;
+      background: #fff0f8;
+      border-radius: 16px;
+      padding: 16px;
+      min-width: 250px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     .ciclo h2 {
-      background-color: #fce4ec;
-      padding: 10px;
-      border-left: 6px solid #ff69b4;
-      border-radius: 10px;
+      text-align: center;
+      margin-bottom: 10px;
+      color: #c2185b;
+      font-size: 18px;
     }
     .materias {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 10px;
+      justify-content: center;
     }
     .materia {
-      background-color: #fff;
-      padding: 10px 15px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      background: #ffffff;
+      padding: 8px 12px;
+      border-radius: 12px;
+      font-size: 14px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.15);
       cursor: pointer;
-      transition: transform 0.2s, background-color 0.3s;
+      transition: all 0.2s ease;
     }
     .materia:hover {
       transform: scale(1.05);
     }
     .materia.checked {
-      background-color: #c8e6c9;
+      background: #d0f0c0;
+      color: #388e3c;
       text-decoration: line-through;
-      color: #4caf50;
     }
     .corazones {
       position: fixed;
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 100;
       pointer-events: none;
+      z-index: 1000;
     }
     .corazon {
       position: absolute;
@@ -74,64 +86,72 @@
       0% { transform: translateY(0) scale(1); opacity: 1; }
       100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
     }
-    #musicButton {
-      display: block;
-      margin: 0 auto 30px auto;
-      padding: 10px 20px;
-      background-color: #ffb6c1;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
   </style>
 </head>
 <body>
-  <h1>Para mi futura doctora</h1>
-  <p class="dedicatoria">Te amo. —George 💌</p>
-  <!-- Aquí van todos los ciclos -->
-<div class="ciclo"><h2>Primer Ciclo</h2><div class="materias"><div class="materia">Biología Humana</div><div class="materia">Química General</div><div class="materia">Matemática Básica</div><div class="materia">Psicología General</div><div class="materia">Técnicas de Estudio</div><div class="materia">Anatomía General</div></div></div><div class="ciclo"><h2>Segundo Ciclo</h2><div class="materias"><div class="materia">Biología Celular</div><div class="materia">Química Orgánica</div><div class="materia">Bioestadística</div><div class="materia">Anatomía del Aparato Locomotor</div><div class="materia">Psicología Médica</div><div class="materia">Salud Pública</div></div></div><div class="ciclo"><h2>Tercer Ciclo</h2><div class="materias"><div class="materia">Fisiología General</div><div class="materia">Microbiología</div><div class="materia">Parasitología</div><div class="materia">Anatomía del Sistema Nervioso</div><div class="materia">Salud Ambiental</div><div class="materia">Antropología Médica</div></div></div><div class="ciclo"><h2>Cuarto Ciclo</h2><div class="materias"><div class="materia">Fisiología de Órganos</div><div class="materia">Inmunología</div><div class="materia">Farmacología General</div><div class="materia">Anatomía Patológica</div><div class="materia">Salud Comunitaria</div><div class="materia">Medicina Tradicional</div></div></div><div class="ciclo"><h2>Quinto Ciclo</h2><div class="materias"><div class="materia">Patología General</div><div class="materia">Farmacología Clínica</div><div class="materia">Semiología Clínica</div><div class="materia">Diagnóstico por Imágenes</div><div class="materia">Ética Médica</div><div class="materia">Nutrición Humana</div></div></div><div class="ciclo"><h2>Sexto Ciclo</h2><div class="materias"><div class="materia">Medicina Interna I</div><div class="materia">Pediatría I</div><div class="materia">Ginecoobstetricia I</div><div class="materia">Cirugía I</div><div class="materia">Psicopatología</div><div class="materia">Metodología de Investigación</div></div></div><div class="ciclo"><h2>Séptimo Ciclo</h2><div class="materias"><div class="materia">Medicina Interna II</div><div class="materia">Pediatría II</div><div class="materia">Ginecoobstetricia II</div><div class="materia">Cirugía II</div><div class="materia">Dermatología</div><div class="materia">Oftalmología</div></div></div><div class="ciclo"><h2>Octavo Ciclo</h2><div class="materias"><div class="materia">Medicina Interna III</div><div class="materia">Traumatología</div><div class="materia">Otorrinolaringología</div><div class="materia">Psiquiatría</div><div class="materia">Urgencias Médicas</div><div class="materia">Bioética</div></div></div><div class="ciclo"><h2>Noveno Ciclo</h2><div class="materias"><div class="materia">Internado Rotatorio I</div><div class="materia">Salud Pública y Gestión</div><div class="materia">Medicina Legal</div><div class="materia">Tópicos de Medicina Tropical</div><div class="materia">Rehabilitación</div></div></div><div class="ciclo"><h2>Décimo Ciclo</h2><div class="materias"><div class="materia">Internado Rotatorio II</div><div class="materia">Seminario de Tesis</div><div class="materia">Electivo Clínico</div><div class="materia">Electivo Quirúrgico</div></div></div>
+  <h1>Malla Curricular de Medicina</h1>
+  <p class="dedicatoria">Para mi futura doctora. Te amo – George Armijos 💌</p>
+
+  <div class="contenedor-ciclos">
+    <!-- CICLO 1 -->
+    <div class="ciclo">
+      <h2>1° Ciclo</h2>
+      <div class="materias">
+        <div class="materia">Anatomía I</div>
+        <div class="materia">Biología Celular</div>
+        <div class="materia">Biofísica</div>
+        <div class="materia">Química General</div>
+        <div class="materia">Desarrollo Humano</div>
+      </div>
+    </div>
+
+    <!-- CICLO 2 -->
+    <div class="ciclo">
+      <h2>2° Ciclo</h2>
+      <div class="materias">
+        <div class="materia">Anatomía II</div>
+        <div class="materia">Histología</div>
+        <div class="materia">Bioquímica</div>
+        <div class="materia">Psicología Médica</div>
+        <div class="materia">Antropología</div>
+      </div>
+    </div>
+
+    <!-- CICLO 3 -->
+    <div class="ciclo">
+      <h2>3° Ciclo</h2>
+      <div class="materias">
+        <div class="materia">Fisiología</div>
+        <div class="materia">Microbiología</div>
+        <div class="materia">Parasitología</div>
+        <div class="materia">Inmunología</div>
+        <div class="materia">Bioética</div>
+      </div>
+    </div>
+
+    <!-- Agrega más ciclos aquí -->
+    <!-- Puedes copiar el bloque <div class="ciclo">...</div> y cambiar número y materias -->
+  </div>
+
   <div class="corazones" id="corazones"></div>
 
-  <audio id="bgMusic" loop>
-    <source src="https://www.youtube.com/embed/3BeLzE3pGyc" type="audio/mpeg">
-    Tu navegador no soporta audio HTML5.
-  </audio>
-
   <script>
-    const materias = document.querySelectorAll('.materia');
-    const corazones = document.getElementById('corazones');
-
-    materias.forEach((el, i) => {
+    document.querySelectorAll('.materia').forEach(el => {
+      const id = el.textContent.trim();
+      if (localStorage.getItem(id) === '1') el.classList.add('checked');
       el.addEventListener('click', () => {
         el.classList.toggle('checked');
-        localStorage.setItem(`materia-${i}`, el.classList.contains('checked'));
-        lanzarCorazon();
+        localStorage.setItem(id, el.classList.contains('checked') ? '1' : '0');
+        const corazones = document.getElementById('corazones');
+        for(let i=0;i<15;i++){ 
+          const c = document.createElement('div'); 
+          c.className = 'corazon'; 
+          c.textContent = '💖'; 
+          c.style.left = Math.random()*100 + '%'; 
+          corazones.appendChild(c); 
+          setTimeout(()=>c.remove(), 2000); 
+        }
       });
-    });
-
-    function lanzarCorazon() {
-      const c = document.createElement('div');
-      c.classList.add('corazon');
-      c.textContent = '💖';
-      c.style.left = Math.random() * 100 + 'px';
-      corazones.appendChild(c);
-      setTimeout(() => c.remove(), 2000);
-    }
-
-    materias.forEach((el, i) => {
-      if (localStorage.getItem(`materia-${i}`) === 'true') {
-        el.classList.add('checked');
-      }
-    });
-
-    // Música
-    musicButton.addEventListener('click', () => {
-      audio.play();
-      musicButton.textContent = '🎵 Música en reproducción...';
-      musicButton.disabled = true;
     });
   </script>
 </body>
