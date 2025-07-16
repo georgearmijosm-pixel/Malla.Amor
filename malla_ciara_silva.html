@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malla de Medicina - Para Ciara ❤️</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fffafc;
+      color: #444;
+      padding: 20px;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #d36ba1;
+    }
+    .dedicatoria {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: #b94b8b;
+      font-style: italic;
+    }
+    .ciclo {
+      background: #fce4ec;
+      margin: 20px auto;
+      padding: 15px;
+      border-radius: 15px;
+      max-width: 600px;
+      box-shadow: 0 0 10px #f8bbd0;
+    }
+    label {
+      display: block;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+    input[type="checkbox"]:checked + span {
+      text-decoration: line-through;
+      color: #999;
+    }
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: url('https://emoji.slack-edge.com/T024FPYBQ/heart/9f110d6fc2f0df74.gif') no-repeat center;
+      background-size: contain;
+      pointer-events: none;
+      animation: float 1s ease forwards;
+    }
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-100px); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Para Ciara Silva 💕</h1>
+  <h2>Malla Curricular de Medicina</h2>
+  <div class="dedicatoria">Para mi futura doctora. Te amo. - George Armijos 💘</div>
+
+  <div id="malla"></div>
+
+  <script>
+    const malla = {
+      "Ciclo I": [
+        "Fundamentos matemáticos", "Biología molecular", "Química", "Morfofuncional I", "Metodología de investigación y técnicas de estudio"
+      ],
+      "Ciclo II": [
+        "Física básica", "Bioquímica general", "Morfofuncional II", "Humanismo, universidad y cultura"
+      ],
+      "Ciclo III": [
+        "Fundamentos filosóficos de la medicina", "Biología evolutiva", "Morfofuncional III", "Búsqueda bibliográfica", "Antropología básica", "Redacción y comprensión lectora I"
+      ],
+      "Ciclo IV": [
+        "Parasitología", "Microbiología", "Morfofuncional IV", "Proyecto de vinculación I", "Bioestadística", "Realidad Nacional", "Redacción y comprensión lectora II"
+      ],
+      "Ciclo V": [
+        "Parasitología", "Farmacología general", "Patología General", "Semiología I", "Epistemología", "Ética y moral", "Psicología clínica", "Fisiopatología I"
+      ],
+      "Ciclo VI": [
+        "Farmacología aplicada", "Patología clínica", "Fisiopatología II", "Semiología II", "Proyecto de vinculación II", "Epidemiología", "Ética médica", "Administración en salud"
+      ],
+      "Ciclo VII": [
+        "Medicina interna I", "Integrado quirúrgico I", "Externado 1.1", "Historia de la medicina", "Composición de textos científicos"
+      ],
+      "Ciclo VIII": [
+        "Psiquiatría", "Infectología y medicina tropical", "Medicina interna II", "Integrado quirúrgico II", "Externado 1.2", "Trabajo de titulación I", "Emprendimiento"
+      ],
+      "Ciclo IX": [
+        "Imagenología", "Genética", "Integrado infantil", "Integrado materno", "Externado 2.1", "Trabajo de titulación II", "Deontología y medicina legal"
+      ],
+      "Ciclo X": [
+        "Medicina familiar", "Integrado de especialidades", "Medicina crítica, urgencias y toxicología", "Externado 2.2", "Salud pública", "Trabajo de titulación III"
+      ],
+      "Ciclo XI": [
+        "Internado de pediatría", "Internado de ginecología y obstetricia", "Internado de clínica", "Internado de cirugía", "Internado de medicina comunitaria"
+      ],
+      "Ciclo XII": [
+        "Internado de pediatría", "Internado de ginecología y obstetricia", "Internado de clínica", "Internado de cirugía", "Internado de medicina comunitaria"
+      ]
+    };
+
+    const contenedor = document.getElementById('malla');
+
+    Object.entries(malla).forEach(([ciclo, materias]) => {
+      const div = document.createElement('div');
+      div.className = 'ciclo';
+      div.innerHTML = `<h3>${ciclo}</h3>`;
+      materias.forEach((materia, idx) => {
+        const id = `${ciclo.replace(/\s/g, '')}-${idx}`;
+        const checked = localStorage.getItem(id) === 'true' ? 'checked' : '';
+        div.innerHTML += `
+          <label>
+            <input type="checkbox" id="${id}" ${checked}>
+            <span>${materia}</span>
+          </label>`;
+      });
+      contenedor.appendChild(div);
+    });
+
+    document.querySelectorAll('input[type="checkbox"]').forEach(input => {
+      input.addEventListener('change', (e) => {
+        localStorage.setItem(input.id, input.checked);
+        if (input.checked) showHeart(e);
+      });
+    });
+
+    function showHeart(e) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = `${e.pageX}px`;
+      heart.style.top = `${e.pageY}px`;
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 1000);
+    }
+  </script>
+</body>
+</html>
