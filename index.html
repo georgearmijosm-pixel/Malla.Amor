@@ -36,7 +36,7 @@
       background: #fff0f8;
       border-radius: 16px;
       padding: 16px;
-      min-width: 250px;
+      min-width: 200px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     .ciclo h2 {
@@ -47,9 +47,9 @@
     }
     .materias {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       gap: 10px;
-      justify-content: center;
+      align-items: center;
     }
     .materia {
       background: #ffffff;
@@ -59,6 +59,8 @@
       box-shadow: 0 2px 4px rgba(0,0,0,0.15);
       cursor: pointer;
       transition: all 0.2s ease;
+      width: 100%;
+      text-align: center;
     }
     .materia:hover {
       transform: scale(1.05);
@@ -93,9 +95,8 @@
   <p class="dedicatoria">Para mi futura doctora. Te amo – George Armijos 💌</p>
 
   <div class="contenedor-ciclos">
-    <!-- CICLO 1 -->
     <div class="ciclo">
-      <h2>1° Ciclo</h2>
+      <h2>1º Ciclo</h2>
       <div class="materias">
         <div class="materia">Anatomía I</div>
         <div class="materia">Biología Celular</div>
@@ -104,10 +105,8 @@
         <div class="materia">Desarrollo Humano</div>
       </div>
     </div>
-
-    <!-- CICLO 2 -->
     <div class="ciclo">
-      <h2>2° Ciclo</h2>
+      <h2>2º Ciclo</h2>
       <div class="materias">
         <div class="materia">Anatomía II</div>
         <div class="materia">Histología</div>
@@ -116,10 +115,8 @@
         <div class="materia">Antropología</div>
       </div>
     </div>
-
-    <!-- CICLO 3 -->
     <div class="ciclo">
-      <h2>3° Ciclo</h2>
+      <h2>3º Ciclo</h2>
       <div class="materias">
         <div class="materia">Fisiología</div>
         <div class="materia">Microbiología</div>
@@ -128,9 +125,7 @@
         <div class="materia">Bioética</div>
       </div>
     </div>
-
     <!-- Agrega más ciclos aquí -->
-    <!-- Puedes copiar el bloque <div class="ciclo">...</div> y cambiar número y materias -->
   </div>
 
   <div class="corazones" id="corazones"></div>
@@ -143,13 +138,13 @@
         el.classList.toggle('checked');
         localStorage.setItem(id, el.classList.contains('checked') ? '1' : '0');
         const corazones = document.getElementById('corazones');
-        for(let i=0;i<15;i++){ 
-          const c = document.createElement('div'); 
-          c.className = 'corazon'; 
-          c.textContent = '💖'; 
-          c.style.left = Math.random()*100 + '%'; 
-          corazones.appendChild(c); 
-          setTimeout(()=>c.remove(), 2000); 
+        for(let i = 0; i < 10; i++) {
+          const c = document.createElement('div');
+          c.className = 'corazon';
+          c.textContent = '💖';
+          c.style.left = Math.random() * 100 + '%';
+          corazones.appendChild(c);
+          setTimeout(() => c.remove(), 2000);
         }
       });
     });
