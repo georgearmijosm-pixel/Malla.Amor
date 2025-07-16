@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Para mi futura doctora</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom, #ffe6f0, #fff0f5);
+      color: #333;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #d63384;
+      margin-bottom: 5px;
+    }
+    p.dedicatoria {
+      text-align: center;
+      font-style: italic;
+      color: #555;
+      margin-bottom: 30px;
+    }
+    .ciclo {
+      margin-bottom: 30px;
+    }
+    .ciclo h2 {
+      background-color: #fce4ec;
+      padding: 10px;
+      border-left: 6px solid #ff69b4;
+      border-radius: 10px;
+    }
+    .materias {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .materia {
+      background-color: #fff;
+      padding: 10px 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.3s;
+    }
+    .materia:hover {
+      transform: scale(1.05);
+    }
+    .materia.checked {
+      background-color: #c8e6c9;
+      text-decoration: line-through;
+      color: #4caf50;
+    }
+    .corazones {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      pointer-events: none;
+    }
+    .corazon {
+      position: absolute;
+      bottom: 0;
+      font-size: 20px;
+      animation: flotar 2s ease-out forwards;
+    }
+    @keyframes flotar {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
+    }
+    #musicButton {
+      display: block;
+      margin: 0 auto 30px auto;
+      padding: 10px 20px;
+      background-color: #ffb6c1;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>Para mi futura doctora</h1>
+  <p class="dedicatoria">Te amo. —George 💌</p>
+  <button id="musicButton">🔊 Iniciar música</button>
+
+  <!-- Aquí van todos los ciclos -->
+<div class="ciclo"><h2>Primer Ciclo</h2><div class="materias"><div class="materia">Biología Humana</div><div class="materia">Química General</div><div class="materia">Matemática Básica</div><div class="materia">Psicología General</div><div class="materia">Técnicas de Estudio</div><div class="materia">Anatomía General</div></div></div><div class="ciclo"><h2>Segundo Ciclo</h2><div class="materias"><div class="materia">Biología Celular</div><div class="materia">Química Orgánica</div><div class="materia">Bioestadística</div><div class="materia">Anatomía del Aparato Locomotor</div><div class="materia">Psicología Médica</div><div class="materia">Salud Pública</div></div></div><div class="ciclo"><h2>Tercer Ciclo</h2><div class="materias"><div class="materia">Fisiología General</div><div class="materia">Microbiología</div><div class="materia">Parasitología</div><div class="materia">Anatomía del Sistema Nervioso</div><div class="materia">Salud Ambiental</div><div class="materia">Antropología Médica</div></div></div><div class="ciclo"><h2>Cuarto Ciclo</h2><div class="materias"><div class="materia">Fisiología de Órganos</div><div class="materia">Inmunología</div><div class="materia">Farmacología General</div><div class="materia">Anatomía Patológica</div><div class="materia">Salud Comunitaria</div><div class="materia">Medicina Tradicional</div></div></div><div class="ciclo"><h2>Quinto Ciclo</h2><div class="materias"><div class="materia">Patología General</div><div class="materia">Farmacología Clínica</div><div class="materia">Semiología Clínica</div><div class="materia">Diagnóstico por Imágenes</div><div class="materia">Ética Médica</div><div class="materia">Nutrición Humana</div></div></div><div class="ciclo"><h2>Sexto Ciclo</h2><div class="materias"><div class="materia">Medicina Interna I</div><div class="materia">Pediatría I</div><div class="materia">Ginecoobstetricia I</div><div class="materia">Cirugía I</div><div class="materia">Psicopatología</div><div class="materia">Metodología de Investigación</div></div></div><div class="ciclo"><h2>Séptimo Ciclo</h2><div class="materias"><div class="materia">Medicina Interna II</div><div class="materia">Pediatría II</div><div class="materia">Ginecoobstetricia II</div><div class="materia">Cirugía II</div><div class="materia">Dermatología</div><div class="materia">Oftalmología</div></div></div><div class="ciclo"><h2>Octavo Ciclo</h2><div class="materias"><div class="materia">Medicina Interna III</div><div class="materia">Traumatología</div><div class="materia">Otorrinolaringología</div><div class="materia">Psiquiatría</div><div class="materia">Urgencias Médicas</div><div class="materia">Bioética</div></div></div><div class="ciclo"><h2>Noveno Ciclo</h2><div class="materias"><div class="materia">Internado Rotatorio I</div><div class="materia">Salud Pública y Gestión</div><div class="materia">Medicina Legal</div><div class="materia">Tópicos de Medicina Tropical</div><div class="materia">Rehabilitación</div></div></div><div class="ciclo"><h2>Décimo Ciclo</h2><div class="materias"><div class="materia">Internado Rotatorio II</div><div class="materia">Seminario de Tesis</div><div class="materia">Electivo Clínico</div><div class="materia">Electivo Quirúrgico</div></div></div>
+  <div class="corazones" id="corazones"></div>
+
+  <audio id="bgMusic" loop>
+    <source src="https://www.youtube.com/embed/3BeLzE3pGyc" type="audio/mpeg">
+    Tu navegador no soporta audio HTML5.
+  </audio>
+
+  <script>
+    const materias = document.querySelectorAll('.materia');
+    const corazones = document.getElementById('corazones');
+
+    materias.forEach((el, i) => {
+      el.addEventListener('click', () => {
+        el.classList.toggle('checked');
+        localStorage.setItem(`materia-${i}`, el.classList.contains('checked'));
+        lanzarCorazon();
+      });
+    });
+
+    function lanzarCorazon() {
+      const c = document.createElement('div');
+      c.classList.add('corazon');
+      c.textContent = '💖';
+      c.style.left = Math.random() * 100 + 'px';
+      corazones.appendChild(c);
+      setTimeout(() => c.remove(), 2000);
+    }
+
+    materias.forEach((el, i) => {
+      if (localStorage.getItem(`materia-${i}`) === 'true') {
+        el.classList.add('checked');
+      }
+    });
+
+    // Música
+    const musicButton = document.getElementById('musicButton');
+    const audio = new Audio('https://docs.google.com/uc?export=download&id=1K0ZoAEL6cXen8OWvW3H5MvYzqHEq4iCy'); // link alternativo instrumental
+    audio.loop = true;
+
+    musicButton.addEventListener('click', () => {
+      audio.play();
+      musicButton.textContent = '🎵 Música en reproducción...';
+      musicButton.disabled = true;
+    });
+  </script>
+</body>
+</html>
